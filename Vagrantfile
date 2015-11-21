@@ -25,9 +25,16 @@ SCRIPT
 Vagrant.configure('2') do |config|
   config.vm.box = 'ubuntu/trusty64'
   config.vm.box_check_update = true
+  config.vm.hostname = "neo4j"
 
   config.vm.network "forwarded_port", guest: 7480, host: 7480
   config.vm.network "forwarded_port", guest: 7443, host: 7443
 
   config.vm.provision 'shell', inline: $script
+
+  # virtualbox definitions
+  config.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", 1024]
+  end
 end
+

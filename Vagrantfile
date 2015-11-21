@@ -17,7 +17,7 @@ sudo wget -O - http://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add 
 sudo echo 'deb http://debian.neo4j.org/repo stable/' | sudo tee --append /etc/apt/sources.list.d/neo4j.list
 sudo apt-get update -y
 sudo apt-get install -y  neo4j
-sudo cp /vagrant/config_files/neo4j-server.properties /etc/neo4j/
+sudo cp /vagrant/config-files/neo4j-server.properties /etc/neo4j/
 sudo chown neo4j:adm /etc/neo4j/neo4j-server.properties
 touch $PROVISIONED;
 SCRIPT
